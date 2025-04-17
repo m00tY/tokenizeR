@@ -15,6 +15,10 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    _ = b.addModule("root", .{
+        .source_root = .{ .path = "src" },
+    });
+
     const lib = b.addLibrary(.{
         .linkage = .static,
         .name = "tokenizeR",
